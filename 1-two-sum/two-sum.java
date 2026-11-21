@@ -1,17 +1,16 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < nums.length; i++) {
+        HashMap<Integer, Integer> freq = new HashMap<>();
+
+        for(int i=0; i<nums.length; i++){
             int complement = target - nums[i];
 
-            if (map.containsKey(complement)) {
-                return new int[]{map.get(complement), i};
+            if(freq.containsKey(complement)){
+                return new int[]{freq.get(complement), i};
             }
-
-            map.put(nums[i], i);
+            freq.put(nums[i], i);
         }
-
         return new int[]{};
     }
 }
